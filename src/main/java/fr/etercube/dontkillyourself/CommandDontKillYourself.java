@@ -43,7 +43,7 @@ public class CommandDontKillYourself implements CommandExecutor{
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                             for (Player player : players) {
                                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
-                                player.sendTitle("§7Joueur sélectionné:", selectedPlayer.getName(), 10, 70, 20);
+                                player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
                             }
                         }, 20L * 5);
                     } else {
