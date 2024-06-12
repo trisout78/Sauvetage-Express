@@ -11,3 +11,4 @@ commands:
   dontkillyourself:
     description: Controls the DontKillYourself game
     usage: /dontkillyourself <start|stop>
+    permission: dontkillyourself.command
