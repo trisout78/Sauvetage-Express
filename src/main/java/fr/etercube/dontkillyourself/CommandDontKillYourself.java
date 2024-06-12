@@ -1,7 +1,6 @@
 package fr.etercube.dontkillyourself;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,6 +15,12 @@ import java.util.Random;
 
 public class CommandDontKillYourself implements CommandExecutor{
 
+    private final Plugin plugin;
+
+    public CommandDontKillYourself(Plugin plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length > 0) {
@@ -27,17 +32,18 @@ public class CommandDontKillYourself implements CommandExecutor{
                         Player selectedPlayer = players.get(selectedIndex);
 
                         for (int i = 0; i < 5; i++) {
-                            Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) this, () -> {
+                            Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                                 for (Player player : players) {
                                     player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
-                                    player.sendMessage(ChatColor.GRAY + "Tirage au sort...");
+                                    player.sendTitle("§7Tirage au sort...", "", 10, 70, 20);
                                 }
                             }, 20L * i);
                         }
 
-                        Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) this, () -> {
+                        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                             for (Player player : players) {
-                                player.sendTitle(ChatColor.GRAY + "Joueur sélectionné: " + ChatColor.RED + ChatColor.BOLD + selectedPlayer.getName(), "", 10, 70, 20);
+                                player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                                player.sendTitle("§7Joueur sélectionné:", selectedPlayer.getName(), 10, 70, 20);
                             }
                         }, 20L * 5);
                     } else {

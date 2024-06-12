@@ -6,8 +6,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getCommand("dontkillyourself").setExecutor(new CommandDontKillYourself());
-
+        this.getCommand("dontkillyourself").setExecutor(new CommandDontKillYourself(this));
     }
 
     @Override
