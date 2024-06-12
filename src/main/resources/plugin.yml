@@ -1,0 +1,9 @@
+name: DontKillYourself
+version: '${project.version}'
+main: fr.etercube.dontkillyourself.Main
+api-version: '1.19'
+softdepend:
+  - 'EterEvents'
+loadbefore:
+  - 'EterEvents'
+authors: [Trisout78]
