@@ -18,6 +18,7 @@ public final class Main extends JavaPlugin implements Listener{
         this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
             commandDontKillYourself.update();
+
         }, 0L, 20L);
     }
 
