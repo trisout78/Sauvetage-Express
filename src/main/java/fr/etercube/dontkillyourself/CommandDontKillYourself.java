@@ -18,7 +18,7 @@ import java.util.Random;
 public class CommandDontKillYourself implements CommandExecutor{
 
     private final Plugin plugin;
-    private Player selectedPlayer = null; // Ajout de la variable selectedPlayer
+    private Player selectedPlayer = null;
 
     public CommandDontKillYourself(Plugin plugin) {
         this.plugin = plugin;
@@ -41,6 +41,8 @@ public class CommandDontKillYourself implements CommandExecutor{
                         }
 
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
+                            int selectedIndex = new Random().nextInt(players.size());
+                            selectedPlayer = players.get(selectedIndex);
                             for (Player player : players) {
                                 if (!player.equals(selectedPlayer)) {
                                     ItemStack compass = new ItemStack(Material.COMPASS);
@@ -54,8 +56,6 @@ public class CommandDontKillYourself implements CommandExecutor{
                     } else {
                         sender.sendMessage("No players online to select.");
                     }
-                    int selectedIndex = new Random().nextInt(players.size());
-                    selectedPlayer = players.get(selectedIndex);
                     break;
                 case "stop":
                     selectedPlayer = null;
