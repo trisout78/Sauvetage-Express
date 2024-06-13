@@ -51,11 +51,11 @@ public class CommandDontKillYourself implements CommandExecutor{
                                 player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
                             }
                         }, 20L * 5);
-                        int selectedIndex = new Random().nextInt(players.size());
-                        selectedPlayer = players.get(selectedIndex);
                     } else {
                         sender.sendMessage("No players online to select.");
                     }
+                    int selectedIndex = new Random().nextInt(players.size());
+                    selectedPlayer = players.get(selectedIndex);
                     break;
                 case "stop":
                     selectedPlayer = null;
