@@ -6,8 +6,10 @@ import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,8 +48,11 @@ public class CommandDontKillYourself implements CommandExecutor{
                             for (Player player : players) {
                                 if (!player.equals(selectedPlayer)) {
                                     ItemStack compass = new ItemStack(Material.COMPASS);
+                                    ItemMeta meta = compass.getItemMeta();
+                                    meta.setDisplayName("§a§lTracker");
+                                    compass.setItemMeta(meta);
+                                    compass.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
                                     player.getInventory().addItem(compass);
-                                    player.setCompassTarget(selectedPlayer.getLocation());
                                 }
                                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
                                 player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
