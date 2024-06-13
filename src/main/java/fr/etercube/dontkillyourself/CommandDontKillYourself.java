@@ -21,12 +21,17 @@ public class CommandDontKillYourself implements CommandExecutor{
 
     private final Plugin plugin;
     private Player selectedPlayer = null;
+    private Integer invulnerabilityTime = null;
 
     public CommandDontKillYourself(Plugin plugin) {
         this.plugin = plugin;
     }
     public Player getSelectedPlayer() {
         return this.selectedPlayer;
+    }
+
+    public Integer getInvulnerabilityTime() {
+        return this.invulnerabilityTime;
     }
 
     @Override
@@ -59,6 +64,7 @@ public class CommandDontKillYourself implements CommandExecutor{
                                 }
                                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
                                 player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
+                                invulnerabilityTime = 180;
                             }
                         }, 20L * 5);
                     } else {

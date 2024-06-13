@@ -1,7 +1,9 @@
 package fr.etercube.dontkillyourself;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +26,16 @@ public final class Main extends JavaPlugin implements Listener{
         if (commandDontKillYourself.getSelectedPlayer() != null) {
             if (event.getEntity().equals(commandDontKillYourself.getSelectedPlayer())) {
                 event.setDeathMessage("§c§l" + event.getEntity().getName() + "§c s'est suicidé !");
+            }
+        }
+    }
+
+    @EventHandler
+    public void onEntityDamage(EntityDamageEvent event) {
+        if (event.getEntity() instanceof Player) {
+            Player player = (Player) event.getEntity();
+            if (player.equals(commandDontKillYourself.getSelectedPlayer()) && commandDontKillYourself.getInvulnerabilityTime() != null) {
+                event.setCancelled(true);
             }
         }
     }
