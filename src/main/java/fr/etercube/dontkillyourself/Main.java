@@ -24,7 +24,6 @@ public final class Main extends JavaPlugin implements Listener{
         if (commandDontKillYourself.getSelectedPlayer() != null) {
             if (event.getEntity().equals(commandDontKillYourself.getSelectedPlayer())) {
                 event.setDeathMessage("§c§l" + event.getEntity().getName() + "§c s'est suicidé !");
-                event.getEntity().setHealth(0);
             }
         }
     }
