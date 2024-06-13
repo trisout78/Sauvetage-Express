@@ -71,10 +71,11 @@ public class CommandDontKillYourself implements CommandExecutor{
         return true;
     }
 
-    public void updateActionBar() {
+    public void update() {
         if (selectedPlayer != null) {
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                 player.sendActionBar("§7Joueurs à protéger: §c" + selectedPlayer.getName());
+                player.setCompassTarget(selectedPlayer.getLocation());
             }
         }
     }

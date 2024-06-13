@@ -13,7 +13,7 @@ public final class Main extends JavaPlugin {
 
         // Schedule the action bar update task to run every second
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
-            commandDontKillYourself.updateActionBar();
+            commandDontKillYourself.update();
         }, 0L, 20L); // 20 ticks = 1 second
     }
 
