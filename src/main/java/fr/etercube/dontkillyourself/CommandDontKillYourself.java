@@ -25,6 +25,9 @@ public class CommandDontKillYourself implements CommandExecutor{
     public CommandDontKillYourself(Plugin plugin) {
         this.plugin = plugin;
     }
+    public Player getSelectedPlayer() {
+        return this.selectedPlayer;
+    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
