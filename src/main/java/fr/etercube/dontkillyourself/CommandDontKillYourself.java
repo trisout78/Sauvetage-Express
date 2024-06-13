@@ -31,9 +31,6 @@ public class CommandDontKillYourself implements CommandExecutor{
                 case "start":
                     List<Player> players = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
                     if (players.size() > 0) {
-                        int selectedIndex = new Random().nextInt(players.size());
-                        selectedPlayer = players.get(selectedIndex); // Mise à jour de la variable selectedPlayer
-
                         for (int i = 0; i < 5; i++) {
                             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                                 for (Player player : players) {
@@ -54,6 +51,8 @@ public class CommandDontKillYourself implements CommandExecutor{
                                 player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
                             }
                         }, 20L * 5);
+                        int selectedIndex = new Random().nextInt(players.size());
+                        selectedPlayer = players.get(selectedIndex);
                     } else {
                         sender.sendMessage("No players online to select.");
                     }
