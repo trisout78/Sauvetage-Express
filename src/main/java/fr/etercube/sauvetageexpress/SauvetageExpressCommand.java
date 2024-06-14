@@ -91,87 +91,87 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 player.sendActionBar("§7Joueurs à protéger: §c" + selectedPlayer.getName());
                 player.setCompassTarget(selectedPlayer.getLocation());
             }
-        }
-        if (invulnerabilityTime != null) {
-            invulnerabilityTime--;
-            if (invulnerabilityTime == 240) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 minutes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+            if (invulnerabilityTime != null) {
+                invulnerabilityTime--;
+                if (invulnerabilityTime == 240) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 minutes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 180) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 3 minutes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 180) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 3 minutes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 120) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 2 minutes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 120) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 2 minutes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 60) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 1 minute", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 60) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 1 minute", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 30) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 30 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 30) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 30 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 20) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 20 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 20) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 20 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 10) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 10 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 10) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 10 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 5) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 5 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 5) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 5 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 4) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 4) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 3) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 3 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 3) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 3 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 2) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 2 secondes", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 2) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 2 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime == 1) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 1 seconde", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime == 1) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 1 seconde", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
                 }
-            }
-            else if (invulnerabilityTime <= 0) {
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§7Invulnérabilité:", "§c§lTerminée", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                else if (invulnerabilityTime <= 0) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Invulnérabilité:", "§c§lTerminée", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                    invulnerabilityTime = null;
                 }
-                invulnerabilityTime = null;
             }
         }
     }
