@@ -59,7 +59,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                             int selectedIndex = new Random().nextInt(players.size());
                             selectedPlayer = players.get(selectedIndex);
-                            invulnerabilityTime = 300;
+                            invulnerabilityTime = Main.defaultinvulnerabilityTime;
                             bossBar = Bukkit.createBossBar("§7Activation des dégats dans §a§l300 §r§7secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
                             bossBar.setVisible(true);
                             bossBar.setProgress(1.0);
@@ -194,7 +194,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                         player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0F, 1.0F);
                     }
                     invulnerabilityTime = null;
-                    tempsrestant = 600;
+                    tempsrestant = Main.defaultgameDuration;
                     bossBar.setStyle(BarStyle.SEGMENTED_10);
                     bossBar.setColor(BarColor.RED);
                 }

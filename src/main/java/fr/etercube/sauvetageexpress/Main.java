@@ -10,9 +10,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class Main extends JavaPlugin implements Listener{
 
     private SauvetageExpressCommand sauvetageExpressCommand;
+    static int defaultinvulnerabilityTime = 600;
+    static int defaultgameDuration = 300;
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
+        defaultinvulnerabilityTime = this.getConfig().getInt("timers.invulnerability");
+        defaultgameDuration = this.getConfig().getInt("timers.gameDuration");
         sauvetageExpressCommand = new SauvetageExpressCommand(this);
         this.getCommand("sauvetageexpress").setExecutor(sauvetageExpressCommand);
         this.getServer().getPluginManager().registerEvents(this, this);
