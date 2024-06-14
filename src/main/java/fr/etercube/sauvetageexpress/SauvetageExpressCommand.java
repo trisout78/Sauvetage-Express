@@ -27,6 +27,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
     private BossBar bossBar;
     private Player selectedPlayer = null;
     private Integer invulnerabilityTime = null;
+    private Integer tempsrestant = null;
 
     public SauvetageExpressCommand(Plugin plugin) {
         this.plugin = plugin;
@@ -106,7 +107,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 double progress = invulnerabilityTime / 300.0;
                 bossBar.setProgress(progress);
                 String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
-                bossBar.setTitle("§7Activation des dégats dans §a§l" + timeLeft + "§r§7 secondes");
+                bossBar.setTitle("§7Activation des dégats dans §a§l" + timeLeft);
                 if (invulnerabilityTime == 240) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 minutes", 10, 70, 20);
@@ -185,6 +186,97 @@ public class SauvetageExpressCommand implements CommandExecutor{
                         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
                     }
                     invulnerabilityTime = null;
+                    tempsrestant = 600;
+                    double progresst = tempsrestant / 600.0;
+                    bossBar.setProgress(progresst);
+                    String timeLeftt = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
+                    bossBar.setTitle("§7Temps Restant §c§l" + timeLeftt);
+                }
+            }
+            else if (tempsrestant != null) {
+                tempsrestant--;
+                double progress = tempsrestant / 600.0;
+                bossBar.setProgress(progress);
+                String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
+                bossBar.setTitle("§7Temps Restant §c§l" + timeLeft);
+                if (tempsrestant == 240) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§l4 minutes restantes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 180) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 3 minutes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 120) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 2 minutes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 60) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 1 minute", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 30) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 30 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 20) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 20 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 10) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 10 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 5) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 5 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 4) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 4 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 3) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 3 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 2) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 2 secondes", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant == 1) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin dans 1 seconde", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                }
+                else if (tempsrestant <= 0) {
+                    for (Player player : Bukkit.getServer().getOnlinePlayers()) {
+                        player.sendTitle("§7Temps Restant:", "§c§lFin de partie !", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                    }
+                    tempsrestant = null;
                 }
             }
         }
