@@ -76,11 +76,11 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     sender.sendMessage("Game Stopped");
                     break;
                 default:
-                    sender.sendMessage("Usage: /dontkillyourself <start|stop>");
+                    sender.sendMessage("Usage: /sauvetageexpress <start|stop>");
                     break;
             }
         } else {
-            sender.sendMessage("Usage: /dontkillyourself <start|stop>");
+            sender.sendMessage("Usage: /sauvetageexpress <start|stop>");
         }
         return true;
     }
