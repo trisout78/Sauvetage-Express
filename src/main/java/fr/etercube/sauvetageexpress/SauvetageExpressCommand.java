@@ -45,6 +45,10 @@ public class SauvetageExpressCommand implements CommandExecutor{
         if (args.length > 0) {
             switch (args[0].toLowerCase()) {
                 case "start":
+                    if (selectedPlayer != null) {
+                        sender.sendMessage("A game is already started.");
+                        return false;
+                    }
                     List<Player> players = new ArrayList<>(Bukkit.getServer().getOnlinePlayers());
                     if (players.size() > 0) {
                         for (int i = 0; i < 5; i++) {
@@ -82,6 +86,10 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     }
                     break;
                 case "stop":
+                    if (selectedPlayer == null) {
+                        sender.sendMessage("No game is started.");
+                        return false;
+                    }
                     selectedPlayer = null;
                     invulnerabilityTime = null;
                     tempsrestant = 1;
