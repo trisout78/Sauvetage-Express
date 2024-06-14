@@ -27,7 +27,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
     private BossBar bossBar;
     private Player selectedPlayer = null;
     private Integer invulnerabilityTime = null;
-    private Integer tempsrestant = null;
+    Integer tempsrestant = null;
 
     public SauvetageExpressCommand(Plugin plugin) {
         this.plugin = plugin;
@@ -88,7 +88,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     break;
                 case "bypassiv":
                     if (selectedPlayer != null) {
-                        invulnerabilityTime = 0;
+                        invulnerabilityTime = 1;
                         sender.sendMessage("Invulnerability bypassed");
                     } else {
                         sender.sendMessage("No player selected");
@@ -195,12 +195,9 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     }
                     invulnerabilityTime = null;
                     tempsrestant = 600;
-                    double progresst = tempsrestant / 600.0;
-                    bossBar.setProgress(progresst);
-                    String timeLeftt = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(tempsrestant);
-                    bossBar.setTitle("§7Temps Restant §c§l" + timeLeftt);
                     bossBar.setStyle(BarStyle.SEGMENTED_10);
                     bossBar.setColor(BarColor.RED);
+
                 }
             }
             else if (tempsrestant != null) {
@@ -208,7 +205,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 double progress = tempsrestant / 600.0;
                 bossBar.setProgress(progress);
                 String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(tempsrestant);
-                bossBar.setTitle("§7Temps Restant §c§l" + timeLeft);
+                bossBar.setTitle("§7Temps Restant: §c§l" + timeLeft);
                 if (tempsrestant == 240) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Temps Restant:", "§c§l4 minutes restantes", 10, 70, 20);
