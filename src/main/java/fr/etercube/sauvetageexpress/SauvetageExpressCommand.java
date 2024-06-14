@@ -23,6 +23,7 @@ import java.util.Random;
 public class SauvetageExpressCommand implements CommandExecutor{
 
     private final Plugin plugin;
+    private BossBar bossBar;
     private Player selectedPlayer = null;
     private Integer invulnerabilityTime = null;
 
@@ -81,6 +82,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 case "stop":
                     selectedPlayer = null;
                     sender.sendMessage("Game Stopped");
+                    bossBar.removeAll();
                     break;
                 default:
                     sender.sendMessage("Usage: /sauvetageexpress <start|stop>");
