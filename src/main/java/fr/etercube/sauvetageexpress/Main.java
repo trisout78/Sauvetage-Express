@@ -12,12 +12,14 @@ public final class Main extends JavaPlugin implements Listener{
     private SauvetageExpressCommand sauvetageExpressCommand;
     static int defaultinvulnerabilityTime = 600;
     static int defaultgameDuration = 300;
+    static boolean stopwitheterevents;
 
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
         defaultinvulnerabilityTime = this.getConfig().getInt("timers.invulnerability");
         defaultgameDuration = this.getConfig().getInt("timers.gameDuration");
+        stopwitheterevents = this.getConfig().getBoolean("stopwitheterevents");
         sauvetageExpressCommand = new SauvetageExpressCommand(this);
         this.getCommand("sauvetageexpress").setExecutor(sauvetageExpressCommand);
         this.getServer().getPluginManager().registerEvents(this, this);
@@ -32,7 +34,7 @@ public final class Main extends JavaPlugin implements Listener{
         if (sauvetageExpressCommand.getSelectedPlayer() != null) {
             if (event.getEntity().equals(sauvetageExpressCommand.getSelectedPlayer())) {
                 event.setDeathMessage("§c§l" + event.getEntity().getName() + "§c s'est suicidé !");
-                sauvetageExpressCommand.tempsrestant = 0;
+                sauvetageExpressCommand.tempsrestant = 1;
             }
         }
     }

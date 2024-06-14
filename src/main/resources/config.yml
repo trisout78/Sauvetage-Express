@@ -1,3 +1,5 @@
 timers:
   invulnerability: 300
   gameDuration: 600
+eterevents:
+  stopwitheterevents: true

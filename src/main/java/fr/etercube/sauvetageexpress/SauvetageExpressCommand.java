@@ -293,6 +293,9 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     selectedPlayer = null;
                     bossBar.removeAll();
                     tempsrestant = null;
+                    if (Main.stopwitheterevents) {
+                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "event stop");
+                    }
                 }
             }
         }
