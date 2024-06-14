@@ -35,7 +35,6 @@ public final class Main extends JavaPlugin implements Listener{
     @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
-            Player player = (Player) event.getEntity();
             if (sauvetageExpressCommand.getInvulnerabilityTime() != null) {
                 event.setCancelled(true);
             }
