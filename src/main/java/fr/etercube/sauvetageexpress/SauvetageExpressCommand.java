@@ -58,7 +58,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                             int selectedIndex = new Random().nextInt(players.size());
                             selectedPlayer = players.get(selectedIndex);
                             invulnerabilityTime = 300;
-                            BossBar bossBar = Bukkit.createBossBar("§7Activation des dégats dans §a§l300 secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
+                            BossBar bossBar = Bukkit.createBossBar("§7Activation des dégats dans §c§l300 §r§7secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
                             bossBar.setVisible(true);
                             bossBar.setProgress(1.0);
                             for (Player player : players) {
@@ -102,6 +102,9 @@ public class SauvetageExpressCommand implements CommandExecutor{
             }
             if (invulnerabilityTime != null) {
                 invulnerabilityTime--;
+                double progress = invulnerabilityTime / 300.0;
+                bossBar.setProgress(progress);
+                bossBar.setTitle("§7Activation des dégats dans §a§l" + invulnerabilityTime + "§r§7secondes");
                 if (invulnerabilityTime == 240) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 minutes", 10, 70, 20);
