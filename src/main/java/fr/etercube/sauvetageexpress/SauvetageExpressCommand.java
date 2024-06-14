@@ -189,15 +189,17 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     tempsrestant = 600;
                     double progresst = tempsrestant / 600.0;
                     bossBar.setProgress(progresst);
-                    String timeLeftt = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
+                    String timeLeftt = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(tempsrestant);
                     bossBar.setTitle("§7Temps Restant §c§l" + timeLeftt);
+                    bossBar.setStyle(BarStyle.SEGMENTED_10);
+                    bossBar.setColor(BarColor.RED);
                 }
             }
             else if (tempsrestant != null) {
                 tempsrestant--;
                 double progress = tempsrestant / 600.0;
                 bossBar.setProgress(progress);
-                String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
+                String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(tempsrestant);
                 bossBar.setTitle("§7Temps Restant §c§l" + timeLeft);
                 if (tempsrestant == 240) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
