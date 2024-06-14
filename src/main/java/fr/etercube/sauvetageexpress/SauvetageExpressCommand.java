@@ -112,7 +112,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
             }
             if (invulnerabilityTime != null) {
                 invulnerabilityTime--;
-                double progress = invulnerabilityTime / 300.0;
+                double progress = invulnerabilityTime / (double) Main.defaultinvulnerabilityTime;
                 bossBar.setProgress(progress);
                 String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
                 bossBar.setTitle("§7Activation des dégats dans §a§l" + timeLeft);
@@ -201,7 +201,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
             }
             else if (tempsrestant != null) {
                 tempsrestant--;
-                double progress = tempsrestant / 600.0;
+                double progress = tempsrestant / (double) Main.defaultgameDuration;
                 bossBar.setProgress(progress);
                 String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(tempsrestant);
                 bossBar.setTitle("§7Temps Restant: §c§l" + timeLeft);
