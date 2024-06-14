@@ -1,6 +1,6 @@
-name: DontKillYourself
+name: SauvetageExpress
 version: '${project.version}'
-main: fr.etercube.dontkillyourself.Main
+main: fr.etercube.sauvetageexpress.Main
 api-version: '1.19'
 softdepend:
   - 'EterEvents'
@@ -8,7 +8,7 @@ loadbefore:
   - 'EterEvents'
 authors: [Trisout78]
 commands:
-  dontkillyourself:
-    description: Controls the DontKillYourself game
-    usage: /dontkillyourself <start|stop>
-    permission: dontkillyourself.command
+  sauvetageexpress:
+    description: Controls the sauvetageexpress game
+    usage: /sauvetageexpress <start|stop>
+    permission: sauvetageexpress.command

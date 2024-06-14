@@ -1,4 +1,4 @@
-package fr.etercube.dontkillyourself;
+package fr.etercube.sauvetageexpress;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class CommandDontKillYourself implements CommandExecutor{
+public class SauvetageExpressCommand implements CommandExecutor{
 
     private final Plugin plugin;
     private Player selectedPlayer = null;
     private Integer invulnerabilityTime = null;
 
-    public CommandDontKillYourself(Plugin plugin) {
+    public SauvetageExpressCommand(Plugin plugin) {
         this.plugin = plugin;
     }
     public Player getSelectedPlayer() {

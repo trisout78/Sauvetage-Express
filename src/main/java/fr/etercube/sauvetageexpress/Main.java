@@ -1,4 +1,4 @@
-package fr.etercube.dontkillyourself;
+package fr.etercube.sauvetageexpress;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,23 +9,23 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin implements Listener{
 
-    private CommandDontKillYourself commandDontKillYourself;
+    private SauvetageExpressCommand sauvetageExpressCommand;
 
     @Override
     public void onEnable() {
-        commandDontKillYourself = new CommandDontKillYourself(this);
-        this.getCommand("dontkillyourself").setExecutor(commandDontKillYourself);
+        sauvetageExpressCommand = new SauvetageExpressCommand(this);
+        this.getCommand("sauvetageexpress").setExecutor(sauvetageExpressCommand);
         this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
-            commandDontKillYourself.update();
+            sauvetageExpressCommand.update();
 
         }, 0L, 20L);
     }
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        if (commandDontKillYourself.getSelectedPlayer() != null) {
-            if (event.getEntity().equals(commandDontKillYourself.getSelectedPlayer())) {
+        if (sauvetageExpressCommand.getSelectedPlayer() != null) {
+            if (event.getEntity().equals(sauvetageExpressCommand.getSelectedPlayer())) {
                 event.setDeathMessage("§c§l" + event.getEntity().getName() + "§c s'est suicidé !");
             }
         }
@@ -35,7 +35,7 @@ public final class Main extends JavaPlugin implements Listener{
     public void onEntityDamage(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if (player.equals(commandDontKillYourself.getSelectedPlayer()) && commandDontKillYourself.getInvulnerabilityTime() != null) {
+            if (player.equals(sauvetageExpressCommand.getSelectedPlayer()) && sauvetageExpressCommand.getInvulnerabilityTime() != null) {
                 event.setCancelled(true);
             }
         }
