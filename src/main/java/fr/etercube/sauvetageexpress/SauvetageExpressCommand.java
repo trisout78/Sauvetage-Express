@@ -3,6 +3,9 @@ package fr.etercube.sauvetageexpress;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.boss.BarColor;
+import org.bukkit.boss.BarStyle;
+import org.bukkit.boss.BossBar;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -53,6 +56,10 @@ public class SauvetageExpressCommand implements CommandExecutor{
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                             int selectedIndex = new Random().nextInt(players.size());
                             selectedPlayer = players.get(selectedIndex);
+                            invulnerabilityTime = 300;
+                            BossBar bossBar = Bukkit.createBossBar("§7Activation des dégats dans §a§l300 secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
+                            bossBar.setVisible(true);
+                            bossBar.setProgress(1.0);
                             for (Player player : players) {
                                 if (!player.equals(selectedPlayer)) {
                                     ItemStack compass = new ItemStack(Material.COMPASS);
@@ -64,7 +71,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                                 }
                                 player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
                                 player.sendTitle("§7Joueur sélectionné:", "§c§l" + selectedPlayer.getName(), 10, 70, 20);
-                                invulnerabilityTime = 300;
+                                bossBar.addPlayer(player);
                             }
                         }, 20L * 5);
                     } else {
