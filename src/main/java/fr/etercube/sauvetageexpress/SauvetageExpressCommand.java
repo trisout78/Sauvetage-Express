@@ -83,8 +83,8 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     break;
                 case "stop":
                     selectedPlayer = null;
-                    sender.sendMessage("Game Stopped");
-                    bossBar.removeAll();
+                    invulnerabilityTime = null;
+                    tempsrestant = 1;
                     break;
                 case "bypassiv":
                     if (selectedPlayer != null) {
@@ -283,6 +283,8 @@ public class SauvetageExpressCommand implements CommandExecutor{
                         player.sendTitle("§7Temps Restant:", "§c§lFin de partie !", 10, 70, 20);
                         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
                     }
+                    selectedPlayer = null;
+                    bossBar.removeAll();
                     tempsrestant = null;
                 }
             }
