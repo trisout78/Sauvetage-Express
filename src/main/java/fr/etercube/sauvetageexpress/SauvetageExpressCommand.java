@@ -191,13 +191,12 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 else if (invulnerabilityTime <= 0) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Invulnérabilité:", "§c§lTerminée", 10, 70, 20);
-                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                        player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0F, 1.0F);
                     }
                     invulnerabilityTime = null;
                     tempsrestant = 600;
                     bossBar.setStyle(BarStyle.SEGMENTED_10);
                     bossBar.setColor(BarColor.RED);
-
                 }
             }
             else if (tempsrestant != null) {
@@ -280,8 +279,8 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 }
                 else if (tempsrestant <= 0) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                        player.sendTitle("§7Temps Restant:", "§c§lFin de partie !", 10, 70, 20);
-                        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0F, 1.0F);
+                        player.sendTitle("§7Temps Restant:", "§6§lFin de partie !", 10, 70, 20);
+                        player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0F, 1.0F);
                     }
                     selectedPlayer = null;
                     bossBar.removeAll();
