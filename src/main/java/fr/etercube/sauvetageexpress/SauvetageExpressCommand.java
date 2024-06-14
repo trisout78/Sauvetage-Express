@@ -86,12 +86,20 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     sender.sendMessage("Game Stopped");
                     bossBar.removeAll();
                     break;
+                case "bypassiv":
+                    if (selectedPlayer != null) {
+                        invulnerabilityTime = 0;
+                        sender.sendMessage("Invulnerability bypassed");
+                    } else {
+                        sender.sendMessage("No player selected");
+                    }
+                    break;
                 default:
-                    sender.sendMessage("Usage: /sauvetageexpress <start|stop>");
+                    sender.sendMessage("Usage: /sauvetageexpress <start|stop|bypassiv>");
                     break;
             }
         } else {
-            sender.sendMessage("Usage: /sauvetageexpress <start|stop>");
+            sender.sendMessage("Usage: /sauvetageexpress <start|stop|bypassiv>");
         }
         return true;
     }

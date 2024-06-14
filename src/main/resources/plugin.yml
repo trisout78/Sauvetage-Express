@@ -10,5 +10,5 @@ authors: [Trisout78]
 commands:
   sauvetageexpress:
     description: Controls the sauvetageexpress game
-    usage: /sauvetageexpress <start|stop>
+    usage: /sauvetageexpress <start|stop|bypassiv>
     permission: sauvetageexpress.command
