@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
+import fr.etercube.sauvetageexpress.utils.ConvertSecondToMinutesAndSeconds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class SauvetageExpressCommand implements CommandExecutor{
                             int selectedIndex = new Random().nextInt(players.size());
                             selectedPlayer = players.get(selectedIndex);
                             invulnerabilityTime = 300;
-                            bossBar = Bukkit.createBossBar("§7Activation des dégats dans §c§l300 §r§7secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
+                            bossBar = Bukkit.createBossBar("§7Activation des dégats dans §a§l300 §r§7secondes", BarColor.GREEN, BarStyle.SEGMENTED_6);
                             bossBar.setVisible(true);
                             bossBar.setProgress(1.0);
                             for (Player player : players) {
@@ -104,7 +105,8 @@ public class SauvetageExpressCommand implements CommandExecutor{
                 invulnerabilityTime--;
                 double progress = invulnerabilityTime / 300.0;
                 bossBar.setProgress(progress);
-                bossBar.setTitle("§7Activation des dégats dans §a§l" + invulnerabilityTime + "§r§7secondes");
+                String timeLeft = ConvertSecondToMinutesAndSeconds.convertSecondsToMinutesAndSeconds(invulnerabilityTime);
+                bossBar.setTitle("§7Activation des dégats dans §a§l" + timeLeft + "§r§7 secondes");
                 if (invulnerabilityTime == 240) {
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Invulnérabilité:", "§c§lFin dans 4 minutes", 10, 70, 20);
