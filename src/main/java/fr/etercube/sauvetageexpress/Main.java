@@ -11,11 +11,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin implements Listener{
 
+    public static boolean vote;
     private SauvetageExpressCommand sauvetageExpressCommand;
     static int defaultinvulnerabilityTime = 600;
     static int defaultgameDuration = 300;
     static boolean stopwitheterevents;
-    private boolean vote;
 
     @Override
     public void onEnable() {
