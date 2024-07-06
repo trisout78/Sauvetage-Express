@@ -17,7 +17,7 @@ public class VoteCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!Main.vote) {
             sender.sendMessage("Il n'est pas possible de voter pour le moment.");
-            return true;
+            return false;
         }
         if (!(sender instanceof Player)) {
             sender.sendMessage("Only players can vote.");
