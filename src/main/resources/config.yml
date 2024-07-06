@@ -1,7 +1,5 @@
 timers:
   invulnerability: 300
   gameDuration: 600
-  voteCooldown: 180
-  voteDuration: 30
 eterevents:
   stopwitheterevents: true

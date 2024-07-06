@@ -1,7 +1,5 @@
 package fr.etercube.sauvetageexpress;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,7 +13,6 @@ public final class Main extends JavaPlugin implements Listener{
     static int defaultinvulnerabilityTime = 600;
     static int defaultgameDuration = 300;
     static boolean stopwitheterevents;
-    private boolean vote;
 
     @Override
     public void onEnable() {
@@ -25,35 +22,11 @@ public final class Main extends JavaPlugin implements Listener{
         stopwitheterevents = this.getConfig().getBoolean("stopwitheterevents");
         sauvetageExpressCommand = new SauvetageExpressCommand(this);
         this.getCommand("sauvetageexpress").setExecutor(sauvetageExpressCommand);
-        this.getCommand("vote").setExecutor(new VoteCommand());
         this.getServer().getPluginManager().registerEvents(this, this);
         this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
             sauvetageExpressCommand.update();
 
         }, 0L, 20L);
-        long voteCooldownTicks = this.getConfig().getLong("timers.voteCooldown") * 20L;
-        long voteDurationTicks = this.getConfig().getLong("timers.voteDuration") * 20L;
-        this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
-            vote = true;
-            for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                player.sendTitle("§9VOTE", "§c§lVous avez 30 secondes pour voter", 10, 70, 20);
-                player.playSound(player.getLocation(), Sound.ENTITY_CAT_HISS, 1.0F, 1.0F);
-                player.sendMessage("[§9VOTE§r] §c§lUtilisez /vote <player> pou voter");
-            }
-            this.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
-                vote = false;
-                for (Player player : Bukkit.getServer().getOnlinePlayers()) {
-                    player.sendTitle("§9VOTE", "§c§lLe vote est terminé", 10, 70, 20);
-                    player.playSound(player.getLocation(), Sound.ENTITY_CAT_HISS, 1.0F, 1.0F);
-                }
-                String winner = VoteCommand.getWinner();
-                if (winner != null) {
-                    Bukkit.getServer().broadcastMessage("Le joueur avec le plus de vote est: " + winner);
-                } else {
-                    Bukkit.getServer().broadcastMessage("Pas assez de votes pour choisir un joueur");
-                }
-            }, 0L, voteDurationTicks);
-        }, 0L, voteCooldownTicks);
     }
 
     @EventHandler
