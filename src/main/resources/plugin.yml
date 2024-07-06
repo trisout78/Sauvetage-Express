@@ -12,3 +12,6 @@ commands:
     description: Controls the sauvetageexpress game
     usage: /sauvetageexpress <start|stop|bypassiv>
     permission: sauvetageexpress.command
+  vote:
+    description: Vote for the server
+    usage: /vote <player>
