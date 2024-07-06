@@ -3,6 +3,5 @@ timers:
   gameDuration: 600
   voteCooldown: 180
   voteDuration: 30
-  teleportCooldown: 300
 eterevents:
   stopwitheterevents: true
