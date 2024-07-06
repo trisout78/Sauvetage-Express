@@ -9,6 +9,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Main extends JavaPlugin implements Listener{
 
     public static boolean vote;
@@ -16,6 +19,7 @@ public final class Main extends JavaPlugin implements Listener{
     static int defaultinvulnerabilityTime = 600;
     static int defaultgameDuration = 300;
     static boolean stopwitheterevents;
+    private List<String> winnerList = new ArrayList<>();
 
     @Override
     public void onEnable() {
@@ -49,6 +53,7 @@ public final class Main extends JavaPlugin implements Listener{
                 String winner = VoteCommand.getWinner();
                 if (winner != null) {
                     Bukkit.getServer().broadcastMessage("Le joueur avec le plus de vote est: " + winner);
+                    winnerList.add(winner);
                 } else {
                     Bukkit.getServer().broadcastMessage("Pas assez de votes pour choisir un joueur");
                 }
