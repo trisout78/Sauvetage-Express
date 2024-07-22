@@ -1,5 +1,6 @@
 package fr.etercube.sauvetageexpress;
 
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -59,12 +60,13 @@ public final class Main extends JavaPlugin implements Listener{
 
     @EventHandler
     public void onClick(PlayerInteractEvent event) {
-        if (sauvetageExpressCommand.getSelectedPlayer() != null) {
-            if (event.getPlayer().equals(sauvetageExpressCommand.getSelectedPlayer())) {
-                event.setCancelled(true);
-            } else {
-                event.getPlayer().teleport(sauvetageExpressCommand.getSelectedPlayer().getLocation());
-                event.getPlayer().sendMessage("§7[§6§lSauvetageExpress§7] §aVous avez été téléporté vers §6" + sauvetageExpressCommand.getSelectedPlayer().getName() + "§a.");
+        ItemStack item = event.getItem();
+        if (item != null && item.getType() == Material.COMPASS) {
+            if (sauvetageExpressCommand.getSelectedPlayer() != null) {
+                if (!event.getPlayer().equals(sauvetageExpressCommand.getSelectedPlayer())) {
+                    event.getPlayer().teleport(sauvetageExpressCommand.getSelectedPlayer().getLocation());
+                    event.getPlayer().sendMessage("§7[§6§lSauvetageExpress§7] §aVous avez été téléporté vers §6" + sauvetageExpressCommand.getSelectedPlayer().getName() + "§a.");
+                }
             }
         }
     }
@@ -75,9 +77,9 @@ public final class Main extends JavaPlugin implements Listener{
             Player player = (Player) event.getWhoClicked();
             ItemStack item = event.getCurrentItem();
 
-            if (item != null && item.getType() == Material.POTION) {
+            if (item != null && item.getType() == Material.POTION && player.getGameMode() == GameMode.CREATIVE) {
                 event.setCancelled(true);
-                player.sendMessage("§7[§6§lSauvetageExpress§7] §cLes potions sont désactivées.");
+                player.sendMessage("§7[§6§lSauvetageExpress§7] §cLes potions sont désactivées en mode créatif.");
             }
         }
     }
