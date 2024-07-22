@@ -1,6 +1,7 @@
 package fr.etercube.sauvetageexpress;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.boss.BarColor;
@@ -117,6 +118,11 @@ public class SauvetageExpressCommand implements CommandExecutor{
             for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                 player.sendActionBar("§7Joueurs à protéger: §c" + selectedPlayer.getName());
                 player.setCompassTarget(selectedPlayer.getLocation());
+                if (invulnerabilityTime != null && invulnerabilityTime > 0) {
+                    if (!player.equals(selectedPlayer)) {
+                        player.setGameMode(GameMode.SPECTATOR);
+                    }
+                }
             }
             if (invulnerabilityTime != null) {
                 invulnerabilityTime--;
@@ -200,6 +206,9 @@ public class SauvetageExpressCommand implements CommandExecutor{
                     for (Player player : Bukkit.getServer().getOnlinePlayers()) {
                         player.sendTitle("§7Invulnérabilité:", "§c§lTerminée", 10, 70, 20);
                         player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_AMBIENT, 1.0F, 1.0F);
+                        if (!player.equals(selectedPlayer)) {
+                            player.setGameMode(GameMode.CREATIVE);
+                        }
                     }
                     invulnerabilityTime = null;
                     tempsrestant = Main.defaultgameDuration;
