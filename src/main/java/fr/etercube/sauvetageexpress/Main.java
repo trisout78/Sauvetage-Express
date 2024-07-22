@@ -68,18 +68,10 @@ public final class Main extends JavaPlugin implements Listener{
                     event.getPlayer().sendMessage("§7[§6§lSauvetageExpress§7] §aVous avez été téléporté vers §6" + sauvetageExpressCommand.getSelectedPlayer().getName() + "§a.");
                 }
             }
-        }
-    }
-
-    @EventHandler
-    public void onInventoryClick(InventoryClickEvent event) {
-        if (event.getWhoClicked() instanceof Player) {
-            Player player = (Player) event.getWhoClicked();
-            ItemStack item = event.getCurrentItem();
-
-            if (item != null && item.getType() == Material.POTION && player.getGameMode() == GameMode.CREATIVE) {
+        } else {
+            if (item != null && item.getType() == Material.LINGERING_POTION || item != null && item.getType() == Material.SPLASH_POTION) {
                 event.setCancelled(true);
-                player.sendMessage("§7[§6§lSauvetageExpress§7] §cLes potions sont désactivées en mode créatif.");
+                event.getPlayer().sendMessage("§7[§6§lSauvetageExpress§7] §cVous ne pouvez pas lancer de potions !");
             }
         }
     }
